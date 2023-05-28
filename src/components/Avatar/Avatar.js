@@ -1,5 +1,5 @@
 import avatar from "../../assets/images/Mohan-muruge.jpg";
-import "./_avatar.scss";
+import "./Avatar.scss";
 
 const Avatar = () => {
     return (

@@ -1,9 +1,11 @@
-import "./_header.scss";
+import "./Header.scss";
+
 import InputBox from "../InputBox/InputBox";
 import Button from "../Button/Button";
 import uploadImg from "../../assets/images/upload.svg";
 import logo from "../../assets/images/BrainFlix-logo.svg";
 import Avatar from "../Avatar/Avatar";
+import Search from "../../assets/images/search.svg";
 
 
 const Header = () => {
@@ -14,10 +16,10 @@ const Header = () => {
             </div>
             <div className="header__search">
                 <div className="header__search-box">
-                    <InputBox placeholder="Search"/>
-                    <Avatar/>
+                    <InputBox img={Search} placeholder="Search" />
+                    <Avatar />
                 </div>
-                <Button img={uploadImg} text="upload"/>
+                <Button className="button" img={uploadImg} text="upload" />
             </div>
         </header>
     );
