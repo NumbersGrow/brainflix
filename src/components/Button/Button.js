@@ -1,9 +1,11 @@
-import "./_button.scss";
+import "./Button.scss";
 
 const Button = (props) => {
     return (
-        <button className="button">
-            <img src={props.img}/>
+        <button className={props.className}>
+            <img
+                className="button-svg"
+                src={props.img} />
             {props.text}
         </button>
     );

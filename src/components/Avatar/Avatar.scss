@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+
+    @include tablet {
+        width: 3rem;
+        height: 3rem;
+        position: absolute;
+        right: 1rem;
+        z-index: 10;
+    }
+
+    @include desktop {
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+}
