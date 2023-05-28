@@ -1,0 +1,66 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+h2 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $highlight;
+    padding-left: 4rem;
+    font-weight: 400;
+}
+
+.card-form {
+    display: flex;
+    
+    @include desktop {
+        padding-right: 1rem;
+    }
+
+    &__avatar-box {
+        display: flex;
+        padding-right: 1rem;
+    }
+
+    &__avatar {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+
+        @include tablet {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+
+    &__content-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__input {
+        border-radius: 0.25rem;
+        height: 6rem;
+        background-color: $gallery-background;
+        border: 0.063rem solid $text-on-dark;
+
+        @include tablet {
+            height: 2.5rem;
+            width: 100%;
+            margin-right: 1rem;
+        }
+    }
+}
+
+.button-comment {
+    @include tablet {
+        width: 30%;
+        font-size: 0.8rem;
+        height: 2.5rem;
+    }
+}

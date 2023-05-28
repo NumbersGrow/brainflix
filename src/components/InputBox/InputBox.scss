@@ -1,0 +1,26 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+input {
+    width: 100%;
+    border-radius: 0.25rem;
+    background-color: $gallery-background;
+    border: 0.063rem solid $text-on-dark;
+    margin-right: 0.8rem;
+    background-image: url(../../assets/images/search.svg);
+    background-repeat: no-repeat;
+    background-position: 0.7rem center;
+
+    @include tablet {
+        height: 3rem;
+    }
+
+    @include desktop {
+        height: 2rem;
+    }
+}
+
+input::placeholder {
+    padding-left: 2rem;
+}
+
