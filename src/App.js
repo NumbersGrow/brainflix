@@ -1,10 +1,10 @@
-import './App.scss';
-import Navigation from './components/Navigation/Navigation';
+import "./App.scss";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <Navigation logo="BrainStation"/>
+      <Header />
     </div>
   );
 }
