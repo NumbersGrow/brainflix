@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useState } from "react";
 import videoDataJSON from "./data/video-details.json";
 
@@ -25,8 +26,10 @@ function App() { {/* state for selected video */}
   };
 
   return (
+    <BrowserRouter>
     <div className="App">
       <Header />
+      {/* <Routes> */}
       <Poster selectedVideo={selectedVideo} />
       <div className="desktop-wrapper"> {/* div for better structure for desktop view */}
         <VideoFrame selectedVideo={selectedVideo} />
@@ -36,7 +39,9 @@ function App() { {/* state for selected video */}
           handleSelectedVideo={handleSelectedVideo}
         />
       </div>
+      {/* </Routes> */}
     </div>
+    </BrowserRouter>
   );
 }
 

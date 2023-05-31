@@ -38,7 +38,7 @@ const VideoFrame = (props) => {
                 <div className="comment-wrapper">
                     <Form />
                     <div className="comment-list"> {/* comment section with data from JSON */}
-                        {props.selectedVideo.comments.map((comment, i) => (
+                        {props.selectedVideo?.comments?.map((comment, i) => (
                             <>
                                 <div className="comment-list__card">
                                     <div className="comment-list__avatar-wrapper">
