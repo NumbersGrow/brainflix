@@ -1,5 +1,7 @@
 import "./MainVideos.scss";
 
+import { Link } from "react-router-dom";
+
 function MainVideos(props) {
     return (
         <div className="videos-wrapper">
@@ -8,11 +10,13 @@ function MainVideos(props) {
             {props.videosData /* filter for showing the list of videos without selected video */
                 .filter((video) => props.selectedVideo.id !== video.id)
                 .map((video) => (
+                    <Link key={video.id} to={`/videos/${video.id}`}>
                     <div
-                        key={video.id}
+                        
                         className="video-card"
-                        onClick={() => props.handleSelectedVideo(video.id)} /* selecting the video by clicking on the list of videos*/
+                        // onClick={() => props.handleSelectedVideo(video.id)} /* selecting the video by clicking on the list of videos*/
                     >
+                        
                         <div>
                             <img className="video-card__image" src={video.image} alt={video.title} />
                         </div>
@@ -20,7 +24,9 @@ function MainVideos(props) {
                             <p className="video-card__title">{video.title}</p>
                             <p>{video.channel}</p>
                         </div>
+                        
                     </div>
+                    </Link>
                 ))}
         </div>
     );

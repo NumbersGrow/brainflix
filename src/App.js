@@ -1,46 +1,29 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useState } from "react";
-import videoDataJSON from "./data/video-details.json";
 
 import "./App.scss";
 
 import Header from "./components/Header/Header";
-import VideoFrame from "./components/VideoFrame/VideoFrame";
-import MainVideos from "./components/MainVideos/MainVideos";
-import Poster from "./components/Poster/Poster";
+import HomePage from './pages/HomePage/HomePage';
+import UploadPage from './pages/UploadPage/UploadPage';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
+// import VideoFrame from "./components/VideoFrame/VideoFrame";
 
+// import MainVideos from "./components/MainVideos/MainVideos";
+// import Poster from "./components/Poster/Poster";
 
-
-function App() { {/* state for selected video */}
-  const [videosData] = useState(videoDataJSON);
-  const [selectedVideo, setSelectedVideo] = useState(
-    videoDataJSON[0]
-  );
-
-  const handleSelectedVideo = (id) => { 
-    videosData.forEach((video) => {
-      if (id === video.id) {
-        setSelectedVideo(video);
-      }
-    });
-  };
-
+function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <Header />
-      {/* <Routes> */}
-      <Poster selectedVideo={selectedVideo} />
-      <div className="desktop-wrapper"> {/* div for better structure for desktop view */}
-        <VideoFrame selectedVideo={selectedVideo} />
-        <MainVideos
-          videosData={videosData}
-          selectedVideo={selectedVideo}
-          handleSelectedVideo={handleSelectedVideo}
-        />
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<Navigate to="/" />} />
+          <Route path="/videos/:videoId" element={<HomePage/>} />
+          <Route path="/upload" element={<UploadPage />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
       </div>
-      {/* </Routes> */}
-    </div>
     </BrowserRouter>
   );
 }
