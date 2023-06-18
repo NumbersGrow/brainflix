@@ -1,8 +1,41 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+// .logo-upload {
+
+//     @include tablet {
+//         padding-left: 0;
+//     }
+
+//     @include desktop {
+//         padding-left: 0;
+//     }
+// }
+
 h1, h4 {
     padding-left: 1rem;
+
+    @include tablet {
+        padding: 3rem 1rem 0.5rem 0;
+    }
+}
+
+.upload-title {
+
+    @include tablet {
+        padding-left: 1rem;
+        padding-bottom: 2rem;
+    }
+}
+
+.upload-subtitle {
+    @include tablet {
+        font-size: 0.8rem;
+    }
+
+    @include desktop {
+        padding-top: 1rem;
+    }
 }
 
 p {
@@ -21,23 +54,68 @@ p {
 
 .upload-wrapper {
     border-top: 0.15rem solid $text-on-dark;
+
+    @include desktop {
+        position: relative;
+    }
+
+    &__video {
+        @include tablet {
+            border-top: solid $text-on-dark 0.15rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        @include desktop {
+            display: flex;
+        }
+    }
+
+    &__desktop-left {
+        @include desktop {
+            width: 40%;
+            padding-right: 2rem;
+        }
+    }
+    
 }
 
 .header {
     padding-bottom: 0;
+    
 }
 
 .image-wrapper {
     padding: 0 1rem 1rem 1rem;
+
+    @include tablet {
+        padding: 0;
+    }
 }
 
 .upload-image {
     width: 100%;
     border-radius: 0.25rem;
+
+    @include tablet {
+        width: 50%;
+    }
+
+    @include desktop {
+        width: 100% ;
+    } 
 }
 
 .upload-form {
     padding: 0 1rem 1rem 1rem;
+
+    @include tablet {
+        padding: 0.5rem 0 1rem 0;
+    }
+
+    @include desktop {
+        width: 100% ;
+    }
 }
 
 .label {
@@ -48,4 +126,59 @@ p {
 
 .card-form__input {
     width: 100%;
+
+}
+
+.description {
+    @include tablet {
+        height: 5rem;
+    }
+
+    @include desktop {
+        height: 7.4rem;
+    }
+}
+
+.button-wrapper {
+    @include tablet {
+        border-top: solid $text-on-dark 0.15rem;
+        margin-top: 1rem;
+        padding-top: 1.5rem;
+        display: flex;
+        justify-content: end;
+    }
+
+    @include desktop {
+        margin: 1rem;
+        position: absolute;
+        width: 97.5%;
+        top: 23rem;
+        left: 0;
+    }
+}
+
+.button-publish {
+    @include tablet {
+        width: 30%;
+        font-size: 0.9rem;
+    }
+
+    @include desktop {
+        width: 15%;
+        font-size: 0.8rem;
+    }
+}
+
+.cancel {
+    @include tablet {
+        order: -1;
+        padding-right: 5rem;
+        padding-bottom: 0;
+        align-self: center;
+        font-size: 0.9rem;
+    }
+
+    @include desktop {
+        font-size: 0.8rem;
+    }
 }
