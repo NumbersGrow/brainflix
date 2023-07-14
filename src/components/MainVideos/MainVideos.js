@@ -2,13 +2,13 @@ import "./MainVideos.scss";
 
 import { Link } from "react-router-dom";
 
-function MainVideos(props) {
+function MainVideos({ videosData, selectedVideo }) {
   return (
     <div className="videos-wrapper">
       <h4>next videos</h4>
 
-      {props.videosData /* filter for showing the list of videos without selected video */
-        .filter((video) => props.selectedVideo.id !== video.id)
+      {videosData /* filter for showing the list of videos without selected video */
+        .filter((video) => selectedVideo.id !== video.id)
         .map((video) => (
           <Link className="link" key={video.id} to={`/videos/${video.id}`}>
             <div className="video-card">

@@ -21,7 +21,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__logo">
-        <Link to="/home">
+        <Link to="/">
           <img className="logo" src={logo} alt="Brainflix-Logo"></img>
         </Link>
       </div>

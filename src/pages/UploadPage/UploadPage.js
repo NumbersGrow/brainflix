@@ -1,43 +1,36 @@
 import "./UploadPage.scss";
 import Button from "../../components/Button/Button";
-
 import uploadHeroImg from "../../assets/images/Upload-video-preview.jpg";
 import publishImg from "../../assets/images/publish.svg";
 
-import { useNavigate, } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 function UploadPage() {
   const [videos, setVideos] = useState([]);
   const [postTitle, setPostTitle] = useState("");
   const [postDescription, setPostDescription] = useState("");
-  // const history = useHistory();
-
   const navigate = useNavigate(); // navigation to Home Page after submission the form by pressing "Publish" button
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const newVideo = {
-      // id: id,
       title: postTitle,
       description: postDescription,
     };
-try {
-    const response = await axios.post("http://localhost:5050/videos/", newVideo);
-    const allVideos = [...videos, response.data];
-    setVideos(allVideos);
-    setPostTitle("");
-    setPostDescription("");
-    videos.push("/");
-    alert("Thank you for publishing your video!");
-    navigate("/");
-  } catch (err) {
-    console.log(`Error: ${err.message}`);
-  }
+    try {
+      const response = axios.post("http://localhost:5050/videos/", newVideo);
+      const allVideos = [...videos, response.data];
+      setVideos(allVideos);
+      setPostTitle("");
+      setPostDescription("");
+      alert("Thank you for publishing your video!");
+      navigate("/");
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
   };
-  
 
   return (
     <div className="upload-wrapper">
@@ -66,7 +59,7 @@ try {
             placeholder="Add a title for your video"
             required
             value={postTitle}
-            onChange={(e) => setPostTitle(e.target.value)}
+            onChange={(e) => setPostTitle(e.target.value)} // event listener for changing target value
           />
           <p>
             <label className="label" htmlFor="description">

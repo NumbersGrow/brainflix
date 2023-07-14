@@ -9,9 +9,6 @@ import "./HomePage.scss";
 
 function HomePage() {
   const { videoId } = useParams();
-
-  // const apiKey = "32314ce0-9b74-4821-ac13-72709edcbe7c"; //api key for api
-
   const [videosData, setVideosData] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
 
@@ -19,7 +16,6 @@ function HomePage() {
     axios
       .get("http://localhost:5050/videos/")
       .then((response) => {
-        console.log(response);
         setVideosData(response.data);
       })
       .catch((err) => console.error(err));
@@ -28,11 +24,8 @@ function HomePage() {
   useEffect(() => {
     if (videoId) {
       axios
-        .get(
-          `http://localhost:5050/videos/${videoId}`
-        )
+        .get(`http://localhost:5050/videos/${videoId}`)
         .then((response) => {
-          console.log(response);
           setSelectedVideo(response.data);
         })
         .catch((err) => console.error(err));
@@ -44,7 +37,6 @@ function HomePage() {
           `http://localhost:5050/videos/${videosData[0].id}` //return the first video if selected video is not existing
         )
         .then((response) => {
-          console.log(response);
           setSelectedVideo(response.data);
         })
         .catch((err) => console.error(err));

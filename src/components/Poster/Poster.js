@@ -1,7 +1,7 @@
 import './Poster.scss'
 
-const Poster = (props) => {
-  if (props.selectedVideo === null) // to prevent the bug with undefined length of video ids
+const Poster = ({selectedVideo}) => {
+  if (selectedVideo === null) // to prevent the bug with undefined length of video ids
     return (
       <div className='desktop-box'>
         <h1>Video not found</h1>
@@ -12,7 +12,7 @@ const Poster = (props) => {
       <video
         className='video-main'
         controls
-        poster={props.selectedVideo.image}
+        poster={selectedVideo.image}
       ></video>
     </div>
   )
