@@ -14,7 +14,7 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5050/videos/")
+      .get("http://localhost:5050/videos/") //local host api
       .then((response) => {
         setVideosData(response.data);
       })
@@ -41,7 +41,7 @@ function HomePage() {
         })
         .catch((err) => console.error(err));
     }
-  }, [videoId, videosData]);
+  }, [videoId, videosData]); //I tried to remove videosData and its not working properly
 
   // if selected video is empty
 
