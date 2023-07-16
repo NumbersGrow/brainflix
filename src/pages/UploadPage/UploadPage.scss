@@ -1,17 +1,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-// .logo-upload {
-
-//     @include tablet {
-//         padding-left: 0;
-//     }
-
-//     @include desktop {
-//         padding-left: 0;
-//     }
-// }
-
 h1, h4 {
     padding-left: 1rem;
 
@@ -126,7 +115,6 @@ p {
 
 .card-form__input {
     width: 100%;
-
 }
 
 .description {

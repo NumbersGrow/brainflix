@@ -1,10 +1,10 @@
 import "./Button.scss";
 
-const Button = (props) => {
+const Button = ({className, onClick, img, text}) => {
   return (
-    <button className={props.className} onClick={props.onClick}>
-      <img className="button-svg" src={props.img} />
-      {props.text}
+    <button className={className} onClick={onClick}>
+      <img className="button-svg" src={img} />
+      {text}
     </button>
   );
 };

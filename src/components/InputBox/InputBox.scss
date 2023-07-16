@@ -2,6 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 
 input {
+    padding-left: 2rem;
     width: 100%;
     border-radius: 0.25rem;
     background-color: $gallery-background;
@@ -20,7 +21,5 @@ input {
     }
 }
 
-input::placeholder {
-    padding-left: 2rem;
-}
+
 

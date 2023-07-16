@@ -1,10 +1,10 @@
 import "./InputBox.scss";
 
-const InputBox = (props) => {
+const InputBox = ({placeholder}) => {
     return (
         <input
             className="input"
-            placeholder={props.placeholder} />
+            placeholder={placeholder} />
     );
 }
 

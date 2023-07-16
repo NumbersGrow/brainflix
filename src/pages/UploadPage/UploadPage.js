@@ -1,18 +1,35 @@
 import "./UploadPage.scss";
 import Button from "../../components/Button/Button";
-
 import uploadHeroImg from "../../assets/images/Upload-video-preview.jpg";
 import publishImg from "../../assets/images/publish.svg";
 
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 
 function UploadPage() {
+  const [videos, setVideos] = useState([]);
+  const [postTitle, setPostTitle] = useState("");
+  const [postDescription, setPostDescription] = useState("");
   const navigate = useNavigate(); // navigation to Home Page after submission the form by pressing "Publish" button
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    alert("Thank you for publishing your video!"); 
-    navigate("/");
+    const newVideo = {
+      title: postTitle,
+      description: postDescription,
+    };
+    try {
+      const response = axios.post("http://localhost:5050/videos/", newVideo);
+      const allVideos = [...videos, response.data];
+      setVideos(allVideos);
+      setPostTitle("");
+      setPostDescription("");
+      alert("Thank you for publishing your video!");
+      navigate("/");
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
   };
 
   return (
@@ -40,6 +57,9 @@ function UploadPage() {
             id="title"
             name="title"
             placeholder="Add a title for your video"
+            required
+            value={postTitle}
+            onChange={(e) => setPostTitle(e.target.value)} // event listener for changing target value
           />
           <p>
             <label className="label" htmlFor="description">
@@ -51,6 +71,9 @@ function UploadPage() {
             id="description"
             name="description"
             placeholder="Add a description to your video"
+            required
+            value={postDescription}
+            onChange={(e) => setPostDescription(e.target.value)}
           />
 
           <div className="button-wrapper">

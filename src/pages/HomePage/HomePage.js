@@ -9,17 +9,13 @@ import "./HomePage.scss";
 
 function HomePage() {
   const { videoId } = useParams();
-
-  const apiKey = "32314ce0-9b74-4821-ac13-72709edcbe7c"; //api key for api
-
   const [videosData, setVideosData] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
 
   useEffect(() => {
     axios
-      .get(`https://project-2-api.herokuapp.com/videos?api_key=${apiKey}`)
+      .get("http://localhost:5050/videos/") //local host api
       .then((response) => {
-        console.log(response);
         setVideosData(response.data);
       })
       .catch((err) => console.error(err));
@@ -28,11 +24,8 @@ function HomePage() {
   useEffect(() => {
     if (videoId) {
       axios
-        .get(
-          `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=${apiKey}`
-        )
+        .get(`http://localhost:5050/videos/${videoId}`)
         .then((response) => {
-          console.log(response);
           setSelectedVideo(response.data);
         })
         .catch((err) => console.error(err));
@@ -41,15 +34,14 @@ function HomePage() {
 
       axios
         .get(
-          `https://project-2-api.herokuapp.com/videos/${videosData[0].id}?api_key=${apiKey}` //return the first video if selected video is not existing
+          `http://localhost:5050/videos/${videosData[0].id}` //return the first video if selected video is not existing
         )
         .then((response) => {
-          console.log(response);
           setSelectedVideo(response.data);
         })
         .catch((err) => console.error(err));
     }
-  }, [videoId, videosData]);
+  }, [videoId, videosData]); //I tried to remove videosData and its not working properly
 
   // if selected video is empty
 
